@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Feedback Analysis</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-orb orb1"></div>
+    <div class="background-orb orb2"></div>
+
+    <div class="container">
+        <header>
+            <h1>QNLP Analyzer</h1>
+            <p>Quantum-Enhanced Student Feedback Analysis</p>
+        </header>
+
+        <main>
+            <section class="upload-section">
+                <div class="glass-card" id="drop-zone">
+                    <h2>Upload Feedback CSV</h2>
+                    <p>Drag & drop your file here or click to browse</p>
+                    <input type="file" id="file-input" accept=".csv" hidden>
+                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">Select File</button>
+                </div>
+            </section>
+
+            <section id="results-section" class="hidden">
+                <div class="stats-grid">
+                    <div class="glass-card stat-card positive">
+                        <h3>Positive Feedback</h3>
+                        <span id="pos-count">0</span>
+                    </div>
+                    <div class="glass-card stat-card negative">
+                        <h3>Negative Feedback</h3>
+                        <span id="neg-count">0</span>
+                    </div>
+                    <div class="glass-card stat-card total">
+                        <h3>Total Analysed</h3>
+                        <span id="total-count">0</span>
+                    </div>
+                </div>
+
+                <div class="glass-card chart-container">
+                    <canvas id="sentimentChart"></canvas>
+                </div>
+
+                <div class="glass-card table-container">
+                    <h3>Detailed Analysis</h3>
+                    <table id="results-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Feedback Excerpt</th>
+                                <th>Sentiment</th>
+                                <th>Confidence</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Rows will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
